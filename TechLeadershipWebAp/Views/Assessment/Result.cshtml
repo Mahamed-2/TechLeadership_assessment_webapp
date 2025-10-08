@@ -1,0 +1,207 @@
+@model TechLeadershipWebApp.Models.TestResult
+@{
+    ViewData["Title"] = "Assessment Results";
+    var maxScore = 15;
+    var totalScore = Model.TotalScore;
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg">
+                <div class="card-header bg-success text-white text-center py-3">
+                    <h2 class="mb-0">Assessment Results</h2>
+                </div>
+                <div class="card-body p-4">
+                    <!-- Success/Error Messages -->
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">
+                            @TempData["Success"]
+                        </div>
+                    }
+                    
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            @TempData["Error"]
+                        </div>
+                    }
+
+                    <div class="text-center mb-4">
+                        <h3 class="text-primary">@Model.ParticipantName</h3>
+                        <p class="text-muted mb-1">Participant ID: <strong>@Model.ParticipantId</strong></p>
+                        <p class="text-muted">Assessment Date: @Model.CreatedAt.ToString("MMM dd, yyyy 'at' h:mm tt")</p>
+                    </div>
+
+                    <!-- Total Score -->
+                    <div class="total-score-card text-center mb-4 p-3 bg-light rounded">
+                        <h4 class="mb-2">Total Score</h4>
+                        <div class="display-4 text-success fw-bold">@totalScore/@maxScore</div>
+                        <div class="progress mt-2" style="height: 20px;">
+                            @{
+                                var totalPercentage = (totalScore * 100) / maxScore;
+                            }
+                            <div class="progress-bar bg-success" role="progressbar" 
+                                 style="width: @totalPercentage%;" 
+                                 aria-valuenow="@totalScore" aria-valuemin="0" aria-valuemax="@maxScore">
+                                @totalPercentage%
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Individual Scores -->
+                    <div class="results-summary mb-4">
+                        <h4 class="text-center mb-3">Leadership Dimension Scores</h4>
+                        <div class="score-breakdown">
+                            <!-- Technical Lead Score -->
+                            <div class="score-item mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="fw-bold">Technical Lead:</label>
+                                    <span class="score badge bg-primary">@Model.TechnicalLeadScore/3</span>
+                                </div>
+                                <div class="progress" style="height: 10px;">
+                                    @{
+                                        var techPercentage = (Model.TechnicalLeadScore * 100) / 3;
+                                        var techBarClass = GetProgressBarClass(techPercentage);
+                                    }
+                                    <div class="progress-bar @techBarClass" 
+                                         role="progressbar" 
+                                         style="width: @techPercentage%"
+                                         aria-valuenow="@Model.TechnicalLeadScore" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Team Lead Score -->
+                            <div class="score-item mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="fw-bold">Team Lead:</label>
+                                    <span class="score badge bg-primary">@Model.TeamLeadScore/3</span>
+                                </div>
+                                <div class="progress" style="height: 10px;">
+                                    @{
+                                        var teamPercentage = (Model.TeamLeadScore * 100) / 3;
+                                        var teamBarClass = GetProgressBarClass(teamPercentage);
+                                    }
+                                    <div class="progress-bar @teamBarClass" 
+                                         role="progressbar" 
+                                         style="width: @teamPercentage%"
+                                         aria-valuenow="@Model.TeamLeadScore" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Architect Score -->
+                            <div class="score-item mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="fw-bold">Architect:</label>
+                                    <span class="score badge bg-primary">@Model.ArchitectScore/3</span>
+                                </div>
+                                <div class="progress" style="height: 10px;">
+                                    @{
+                                        var archPercentage = (Model.ArchitectScore * 100) / 3;
+                                        var archBarClass = GetProgressBarClass(archPercentage);
+                                    }
+                                    <div class="progress-bar @archBarClass" 
+                                         role="progressbar" 
+                                         style="width: @archPercentage%"
+                                         aria-valuenow="@Model.ArchitectScore" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mentor Score -->
+                            <div class="score-item mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="fw-bold">Mentor:</label>
+                                    <span class="score badge bg-primary">@Model.MentorScore/3</span>
+                                </div>
+                                <div class="progress" style="height: 10px;">
+                                    @{
+                                        var mentorPercentage = (Model.MentorScore * 100) / 3;
+                                        var mentorBarClass = GetProgressBarClass(mentorPercentage);
+                                    }
+                                    <div class="progress-bar @mentorBarClass" 
+                                         role="progressbar" 
+                                         style="width: @mentorPercentage%"
+                                         aria-valuenow="@Model.MentorScore" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project Manager Score -->
+                            <div class="score-item mb-3">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label class="fw-bold">Project Manager:</label>
+                                    <span class="score badge bg-primary">@Model.ProjectManagerScore/3</span>
+                                </div>
+                                <div class="progress" style="height: 10px;">
+                                    @{
+                                        var pmPercentage = (Model.ProjectManagerScore * 100) / 3;
+                                        var pmBarClass = GetProgressBarClass(pmPercentage);
+                                    }
+                                    <div class="progress-bar @pmBarClass" 
+                                         role="progressbar" 
+                                         style="width: @pmPercentage%"
+                                         aria-valuenow="@Model.ProjectManagerScore" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dominant Type -->
+                    <div class="dominant-type alert alert-info text-center">
+                        <h4 class="mb-2">Dominant Leadership Style</h4>
+                        <h3 class="text-primary mb-0">@Model.DominantLeadershipType</h3>
+                    </div>
+
+                    <!-- Feedback -->
+                    <div class="feedback-section">
+                        <h4 class="text-center mb-3">Skills Development Feedback</h4>
+                        <div class="feedback-content p-3 bg-light rounded">
+                            @Html.Raw(Model.Feedback.Replace("\n", "<br>"))
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="@Url.Action("Index", "Assessment")" class="btn btn-primary me-2">
+                            <i class="fas fa-redo me-1"></i>Take Another Assessment
+                        </a>
+                        <a href="@Url.Action("AllResults", "Assessment")" class="btn btn-info me-2">
+                            <i class="fas fa-list me-1"></i>View All Results
+                        </a>
+                        <form action="@Url.Action("DeleteResult", "Assessment")" method="post" class="d-inline"
+                              onsubmit="return confirm('Are you sure you want to delete the result for @Model.ParticipantName?');">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.ParticipantId" />
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash me-1"></i>Delete This Result
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@functions {
+    private string GetProgressBarClass(int percentage)
+    {
+        return percentage >= 80 ? "bg-success" :
+               percentage >= 60 ? "bg-info" :
+               percentage >= 40 ? "bg-warning" : "bg-danger";
+    }
+}
