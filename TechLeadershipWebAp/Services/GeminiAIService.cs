@@ -7,7 +7,7 @@ namespace TechLeadershipWebApp.Services
     public class GeminiAIService : IAIQuestionGenerator
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "AIzaSyDEEv6FcM-4bfZPeuJt4oJpaAwo54qr4P0";
+        private readonly string _apiKey = "GEMENIAPIKEY";
         private readonly string _baseUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
 
         public GeminiAIService(HttpClient httpClient)
