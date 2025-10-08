@@ -260,5 +260,5 @@ For issues and questions:
 ---
 
 Version: 1.0  
-Last Updated: 2024  
+Last Updated: 2025  
 Compatibility: .NET 9.0+
