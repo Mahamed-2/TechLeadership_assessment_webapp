@@ -12,6 +12,8 @@ namespace TechLeadershipWebApp.Models
         [Required]
         public string Text { get; set; } = string.Empty;
         
+        public string Language { get; set; } = "en"; // Default to English
+        
         public virtual List<Alternative> Alternatives { get; set; } = new List<Alternative>();
     }
 
@@ -40,5 +42,11 @@ namespace TechLeadershipWebApp.Models
         Architect = 2,
         Mentor = 3,
         ProjectManager = 4
+    }
+
+    public enum Language
+    {
+        English = 0,
+        Swedish = 1
     }
 }

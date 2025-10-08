@@ -69,12 +69,4 @@ using (var scope = app.Services.CreateScope())
 }
 
 Console.WriteLine("Application starting...");
-Console.WriteLine("Available routes:");
-Console.WriteLine("  GET  / -> Assessment/Index");
-Console.WriteLine("  POST /Assessment/Submit");
-Console.WriteLine("  GET  /Assessment/Result/{id}");
-Console.WriteLine("  GET  /Assessment/AllResults");
-Console.WriteLine("  POST /Assessment/DeleteAllResults");
-Console.WriteLine("  POST /Assessment/DeleteResult");
-
 app.Run();

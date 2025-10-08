@@ -111,6 +111,7 @@
 /Users/Sheikh/Desktop/Backend_Cloud Development_courses/Objektorienterad programmering med C# 1_2/Uppgifter/Vecka_6/Excerise/TechLeadershipWebAp/obj/Debug/net9.0/TechLeadershipWebAp.MvcApplicationPartsAssemblyInfo.cache
 /Users/Sheikh/Desktop/Backend_Cloud Development_courses/Objektorienterad programmering med C# 1_2/Uppgifter/Vecka_6/Excerise/TechLeadershipWebAp/obj/Debug/net9.0/TechLeadershipWebAp.RazorAssemblyInfo.cache
 /Users/Sheikh/Desktop/Backend_Cloud Development_courses/Objektorienterad programmering med C# 1_2/Uppgifter/Vecka_6/Excerise/TechLeadershipWebAp/obj/Debug/net9.0/TechLeadershipWebAp.RazorAssemblyInfo.cs
+/Users/Sheikh/Desktop/Backend_Cloud Development_courses/Objektorienterad programmering med C# 1_2/Uppgifter/Vecka_6/Excerise/TechLeadershipWebAp/obj/Debug/net9.0/TechLeadershipWebAp.sourcelink.json
 /Users/Sheikh/Desktop/Backend_Cloud Development_courses/Objektorienterad programmering med C# 1_2/Uppgifter/Vecka_6/Excerise/TechLeadershipWebAp/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/Sheikh/Desktop/Backend_Cloud Development_courses/Objektorienterad programmering med C# 1_2/Uppgifter/Vecka_6/Excerise/TechLeadershipWebAp/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/Sheikh/Desktop/Backend_Cloud Development_courses/Objektorienterad programmering med C# 1_2/Uppgifter/Vecka_6/Excerise/TechLeadershipWebAp/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
