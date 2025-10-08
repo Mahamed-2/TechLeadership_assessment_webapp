@@ -16,13 +16,18 @@ namespace TechLeadershipWebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string language = "en")
         {
             try
             {
-                _logger.LogInformation("Loading assessment questions...");
-                var questions = await _assessmentService.GetQuestionsAsync();
-                _logger.LogInformation($"Loaded {questions.Count} questions for assessment");
+                _logger.LogInformation($"Loading assessment questions in {language}...");
+                var questions = await _assessmentService.GetQuestionsAsync(language);
+                _logger.LogInformation($"Loaded {questions.Count} questions for assessment in {language}");
+                
+                ViewBag.CurrentLanguage = language;
+                ViewBag.IsEnglish = language == "en";
+                ViewBag.IsSwedish = language == "sv";
+                
                 return View(questions);
             }
             catch (Exception ex)

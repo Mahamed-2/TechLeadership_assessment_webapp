@@ -1,7 +1,7 @@
 @model TechLeadershipWebApp.Models.TestResult
 @{
     ViewData["Title"] = "Assessment Results";
-    var maxScore = 15;
+    var maxScore = 25; // Changed from 15 to 25 (5 questions × 5 points)
     var totalScore = Model.TotalScore;
 }
 
@@ -52,17 +52,17 @@
 
                     <!-- Individual Scores -->
                     <div class="results-summary mb-4">
-                        <h4 class="text-center mb-3">Leadership Dimension Scores</h4>
+                        <h4 class="text-center mb-3">Leadership Dimension Scores (Out of 5)</h4>
                         <div class="score-breakdown">
                             <!-- Technical Lead Score -->
                             <div class="score-item mb-3">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <label class="fw-bold">Technical Lead:</label>
-                                    <span class="score badge bg-primary">@Model.TechnicalLeadScore/3</span>
+                                    <span class="score badge bg-primary">@Model.TechnicalLeadScore/5</span>
                                 </div>
                                 <div class="progress" style="height: 10px;">
                                     @{
-                                        var techPercentage = (Model.TechnicalLeadScore * 100) / 3;
+                                        var techPercentage = (Model.TechnicalLeadScore * 100) / 5;
                                         var techBarClass = GetProgressBarClass(techPercentage);
                                     }
                                     <div class="progress-bar @techBarClass" 
@@ -70,7 +70,7 @@
                                          style="width: @techPercentage%"
                                          aria-valuenow="@Model.TechnicalLeadScore" 
                                          aria-valuemin="0" 
-                                         aria-valuemax="3">
+                                         aria-valuemax="5">
                                     </div>
                                 </div>
                             </div>
@@ -79,11 +79,11 @@
                             <div class="score-item mb-3">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <label class="fw-bold">Team Lead:</label>
-                                    <span class="score badge bg-primary">@Model.TeamLeadScore/3</span>
+                                    <span class="score badge bg-primary">@Model.TeamLeadScore/5</span>
                                 </div>
                                 <div class="progress" style="height: 10px;">
                                     @{
-                                        var teamPercentage = (Model.TeamLeadScore * 100) / 3;
+                                        var teamPercentage = (Model.TeamLeadScore * 100) / 5;
                                         var teamBarClass = GetProgressBarClass(teamPercentage);
                                     }
                                     <div class="progress-bar @teamBarClass" 
@@ -91,7 +91,7 @@
                                          style="width: @teamPercentage%"
                                          aria-valuenow="@Model.TeamLeadScore" 
                                          aria-valuemin="0" 
-                                         aria-valuemax="3">
+                                         aria-valuemax="5">
                                     </div>
                                 </div>
                             </div>
@@ -100,11 +100,11 @@
                             <div class="score-item mb-3">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <label class="fw-bold">Architect:</label>
-                                    <span class="score badge bg-primary">@Model.ArchitectScore/3</span>
+                                    <span class="score badge bg-primary">@Model.ArchitectScore/5</span>
                                 </div>
                                 <div class="progress" style="height: 10px;">
                                     @{
-                                        var archPercentage = (Model.ArchitectScore * 100) / 3;
+                                        var archPercentage = (Model.ArchitectScore * 100) / 5;
                                         var archBarClass = GetProgressBarClass(archPercentage);
                                     }
                                     <div class="progress-bar @archBarClass" 
@@ -112,7 +112,7 @@
                                          style="width: @archPercentage%"
                                          aria-valuenow="@Model.ArchitectScore" 
                                          aria-valuemin="0" 
-                                         aria-valuemax="3">
+                                         aria-valuemax="5">
                                     </div>
                                 </div>
                             </div>
@@ -121,11 +121,11 @@
                             <div class="score-item mb-3">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <label class="fw-bold">Mentor:</label>
-                                    <span class="score badge bg-primary">@Model.MentorScore/3</span>
+                                    <span class="score badge bg-primary">@Model.MentorScore/5</span>
                                 </div>
                                 <div class="progress" style="height: 10px;">
                                     @{
-                                        var mentorPercentage = (Model.MentorScore * 100) / 3;
+                                        var mentorPercentage = (Model.MentorScore * 100) / 5;
                                         var mentorBarClass = GetProgressBarClass(mentorPercentage);
                                     }
                                     <div class="progress-bar @mentorBarClass" 
@@ -133,7 +133,7 @@
                                          style="width: @mentorPercentage%"
                                          aria-valuenow="@Model.MentorScore" 
                                          aria-valuemin="0" 
-                                         aria-valuemax="3">
+                                         aria-valuemax="5">
                                     </div>
                                 </div>
                             </div>
@@ -142,11 +142,11 @@
                             <div class="score-item mb-3">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <label class="fw-bold">Project Manager:</label>
-                                    <span class="score badge bg-primary">@Model.ProjectManagerScore/3</span>
+                                    <span class="score badge bg-primary">@Model.ProjectManagerScore/5</span>
                                 </div>
                                 <div class="progress" style="height: 10px;">
                                     @{
-                                        var pmPercentage = (Model.ProjectManagerScore * 100) / 3;
+                                        var pmPercentage = (Model.ProjectManagerScore * 100) / 5;
                                         var pmBarClass = GetProgressBarClass(pmPercentage);
                                     }
                                     <div class="progress-bar @pmBarClass" 
@@ -154,7 +154,7 @@
                                          style="width: @pmPercentage%"
                                          aria-valuenow="@Model.ProjectManagerScore" 
                                          aria-valuemin="0" 
-                                         aria-valuemax="3">
+                                         aria-valuemax="5">
                                     </div>
                                 </div>
                             </div>
