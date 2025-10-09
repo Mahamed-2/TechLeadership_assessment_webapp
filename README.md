@@ -256,7 +256,9 @@ For issues and questions:
 2. Review application logs
 3. Verify API configuration
 4. Test with default questions
-
+   
+UML:
+<img width="5141" height="5381" alt="UML" src="https://github.com/user-attachments/assets/5fce11db-6c6d-4a3b-b6bb-eb6dfca6546f" />
 ---
 
 Version: 1.0  
